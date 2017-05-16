@@ -1,0 +1,59 @@
+﻿@model Modelo.Alumno
+
+@{
+    ViewBag.Title = "ver";
+}
+
+<h2>Detalles del Estudiante</h2>
+<ol class="breadcrumb">
+    <li><a href="~/">Alumnos</a></li>
+    <li class="active">@(Model.Nombre +" " +Model.Apellidos)</li>
+</ol>
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">Informacion Personal</div>
+    <div class="panel-body">
+        <dl class="dl-horizontal">
+            <dt>Nombre:</dt>
+            <dd>@Model.Nombre @Model.Apellidos</dd>
+            <dt>Sexo:</dt>
+            <dd>@(Model.Sexo == "1"?"Hombre":"Mujer")</dd>
+            <dt>Fecha Nacimiento:</dt>
+            <dd>@Model.FechaNacimiento</dd>
+        </dl>
+    </div>
+</div>
+
+@if (Model.AlumnoCurso.Count > 0)
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">Cursos Asignados</div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Cursos</th>
+                    <th style="width:60px;">Nota</th>
+                </tr>
+            </thead>
+            @foreach (var c in Model.AlumnoCurso)
+            {
+                <tr>
+                    <td>@c.Curso.Nombre</td>
+                    <td class="text-right">@c.Nota</td>
+                </tr>
+            }
+        </table>
+
+    </div>
+}
+else
+{   
+    <p><b>No hay cursos asignados a este alumno.</b></p>
+    
+}
+
+<div class="text-lefth">
+
+    <a class="btn btn-sm btn-default " href="~/home/">Atras</a>
+</div>

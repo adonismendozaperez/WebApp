@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.title</title>
+    <link href="~/Assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Assets/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <script src="~/Assets/js/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header clearfix "> 
+            <!-- Barra del menu -->
+        <nav>
+            <ul class="nav nav-pills float-right">
+                <!-- Boton Alumnos -->
+                <li class="nav-item">
+                    @Html.ActionLink("Alumnos","Index","Home", new { @class="nav-link active"})
+                </li>
+                <!-- Boton About -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <!-- Boton Contacts -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contacts</a>
+                </li>
+            </ul>
+        </nav>
+            
+        </div>
+        <div class="row marketing">
+            @RenderBody()
+        </div>
+
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Made with love by Adonis Mendoza</p>
+        </footer>
+    </div>
+    <script src="~/Assets/js/bootstrap.min.js"></script>
+    <script src="~/Assets/js/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Assets/js/jquery.validate.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+﻿@model Modelo.Alumno
+@*@model Modelo.AlumnoCurso*@
+@{
+    ViewBag.title = (Model.id > 0 ? Model.Nombre + " " + Model.Apellidos : "Nuevo Estudiante");
+}
+
+<ol class="breadcrumb">
+    <li><a href="~/">Alumnos</a></li>
+    <li class="active">@(Model.id > 0 ? Model.Nombre + " " + Model.Apellidos : "Nuevo Estudiante") </li>
+</ol>
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#Alumno" aria-controls="Alumno" role="tab" data-toggle="tab">información</a></li>
+    @if (Model.id > 0)
+    {
+        <li role="presentation"><a href="#cursos" aria-controls="cursos" role="tab" data-toggle="tab">Cursos</a></li>
+
+    }
+
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="Alumno">
+
+        @using (Html.BeginForm("Guardar", "Home", FormMethod.Post, new { id = "frm-alumno" }))
+            {
+            @Html.HiddenFor(x => x.id)
+            <div class="panel panel-default">
+                <div class="panel-heading">información Personal</div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Nombre)
+                        @Html.TextBoxFor(x => x.Nombre, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Nombre, null, new { @class = "label label-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Apellidos)
+                        @Html.TextBoxFor(x => x.Apellidos, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Apellidos, null, new { @class = "label label-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Sexo)
+                        <select name="Sexo" class="form-control">
+                            <option @(Model.Sexo == "1" ? "selected" : "") value="1">Hombre</option>
+                            <option @(Model.Sexo == "2" ? "selected" : "") value="2">Mujer</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.FechaNacimiento)
+                        @Html.TextBoxFor(x => x.FechaNacimiento, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.FechaNacimiento, null, new { @class = "label label-danger" })
+                    </div>
+
+                </div>
+            </div>
+            <div class="text-lefth">
+                <a class="btn btn-sm btn-danger" href="~/home/">Cancelar</a>
+            </div>
+            
+
+            <div class="text-right">
+                <button type="submit" class="btn btn-primary">Guardar  </button>
+            </div>
+        }
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="cursos">
+        
+        @*@using (Html.BeginForm("GuardarAlumnoCuros", "Home", FormMethod.Post, new { id = "frm-alumnocurso" }))
+        {
+        @Html.HiddenFor(x => x.id)
+        <div class="panel panel-default">
+            <div class="panel-heading">Cursos</div>
+            <div class="panel-body">
+
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Curso)
+                    <select name="Sexo" class="form-control">
+                        <option @(Model.Curso_id == 100 ? "selected" : "") value="1">Fundamentos C#</option>
+                        <option @(Model.Curso_id == 101 ? "selected" : "") value="2">Java EE</option>
+                        <option @(Model.Curso_id == 102 ? "selected" : "") value="2">PHP</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Nota)
+                    @Html.TextBoxFor(x => x.Nota, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Nota, null, new { @class = "label label-danger" })
+                </div>
+
+            </div>
+        </div>
+
+
+
+    }*@
+    </div>
+
+
+
+</div>
