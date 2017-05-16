@@ -1,0 +1,34 @@
+﻿@model List<Modelo.Curso>
+@{
+    ViewBag.Title = "Cursos";
+}
+
+<h2 class="page-header">
+    <a href="~/curso/crud" class="btn btn-default pull-right">Nuevo Curso</a>
+    Cursos
+</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th style="width:200px;">Cursos</th>
+            <th style="width:200px;"></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var m in Model)
+        {
+            <tr>
+                <th>@(m.Nombre)</th>
+                <th style="width:100px;">
+                    <a class="btn btn-xs btn-default " href="~/curso/ver/@m.id">Ver</a>
+                    <a class="btn btn-xs btn-primary " href="~/curso/crud/@m.id">Editar</a>
+                    <a onclick="return confirm('¿Desea eliminar?');" class="btn btn-xs btn-danger" href="~/curso/eliminar/@m.id">Eliminar</a>
+                </th>
+
+            </tr>
+        }
+    </tbody>
+
+</table>

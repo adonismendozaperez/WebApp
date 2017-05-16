@@ -9,8 +9,8 @@ namespace WebApp.Controllers
 {
     public class HomeController : Controller
     {
-        private Alumno alumno = new Modelo.Alumno();
-        private AlumnoCurso alumnoCurso = new Modelo.AlumnoCurso();
+        private Alumno alumno = new Alumno();
+        private AlumnoCurso alumnoCurso = new AlumnoCurso();
         // GET: Home
         public ActionResult Index()
         {         

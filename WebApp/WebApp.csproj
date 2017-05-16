@@ -159,6 +159,9 @@
     <Content Include="Assets\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Views\Home\ver.cshtml" />
     <Content Include="Views\Home\Crud.cshtml" />
+    <Content Include="Views\Curso\Index.cshtml" />
+    <Content Include="Views\Curso\Crud.cshtml" />
+    <Content Include="Views\Curso\ver.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -168,7 +171,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Curso\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Modelo\Modelo.csproj">
