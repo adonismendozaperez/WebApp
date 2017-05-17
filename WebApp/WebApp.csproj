@@ -133,10 +133,17 @@
     <Content Include="Global.asax" />
     <Content Include="Assets\js\jquery.validate.min.js" />
     <Content Include="Assets\js\jquery.validate.unobtrusive.min.js" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AlumnoCursoesController.cs" />
     <Compile Include="Controllers\CursoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -162,6 +169,12 @@
     <Content Include="Views\Curso\Index.cshtml" />
     <Content Include="Views\Curso\Crud.cshtml" />
     <Content Include="Views\Curso\ver.cshtml" />
+    <Content Include="Views\AlumnoCursoes\Create.cshtml" />
+    <Content Include="Views\AlumnoCursoes\Delete.cshtml" />
+    <Content Include="Views\AlumnoCursoes\Details.cshtml" />
+    <Content Include="Views\AlumnoCursoes\Edit.cshtml" />
+    <Content Include="Views\AlumnoCursoes\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

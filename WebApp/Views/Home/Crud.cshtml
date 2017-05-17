@@ -1,5 +1,4 @@
 ﻿@model Modelo.Alumno
-@*@model Modelo.AlumnoCurso*@
 @{
     ViewBag.title = (Model.id > 0 ? Model.Nombre + " " + Model.Apellidos : "Nuevo Estudiante");
 }
@@ -61,35 +60,7 @@
     </div>
 
     <div role="tabpanel" class="tab-pane" id="cursos">
-        
-        @*@using (Html.BeginForm("GuardarAlumnoCuros", "Home", FormMethod.Post, new { id = "frm-alumnocurso" }))
-        {
-        @Html.HiddenFor(x => x.id)
-        <div class="panel panel-default">
-            <div class="panel-heading">Cursos</div>
-            <div class="panel-body">
 
-
-                <div class="form-group">
-                    @Html.LabelFor(x => x.Curso)
-                    <select name="Sexo" class="form-control">
-                        <option @(Model.Curso_id == 100 ? "selected" : "") value="1">Fundamentos C#</option>
-                        <option @(Model.Curso_id == 101 ? "selected" : "") value="2">Java EE</option>
-                        <option @(Model.Curso_id == 102 ? "selected" : "") value="2">PHP</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(x => x.Nota)
-                    @Html.TextBoxFor(x => x.Nota, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(x => x.Nota, null, new { @class = "label label-danger" })
-                </div>
-
-            </div>
-        </div>
-
-
-
-    }*@
     </div>
 
 
