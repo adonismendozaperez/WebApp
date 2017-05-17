@@ -16,15 +16,15 @@
             <ul class="nav nav-pills float-right">
                 <!-- Boton Alumnos -->
                 <li class="nav-item">
-                    @Html.ActionLink("Alumnos","Index","Home", new { @class="nav-link active"})
+                    @Html.ActionLink("Alumnos","Index","Home",new { }, new { @class="nav-link active"})
                 </li>
                 <!-- Boton About -->
                 <li class="nav-item">
-                    @Html.ActionLink("Cursos", "Index", "Curso", new { @class = "nav-link " })
+                    @Html.ActionLink("Cursos", "Index", "Curso",new { }, new { @class = "nav-link " })
                 </li>
                 <!-- Boton Contacts -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contacts</a>
+                    @Html.ActionLink("Asignaciones", "Index", "AlumnoCursoes", new { }, new { @class = "nav-link " })
                 </li>
             </ul>
         </nav>
@@ -39,8 +39,9 @@
             <p>&copy; @DateTime.Now.Year - Made with love by Adonis Mendoza</p>
         </footer>
     </div>
-    <script src="~/Assets/js/bootstrap.min.js"></script>
-    <script src="~/Assets/js/jquery.validate.unobtrusive.min.js"></script>
-    <script src="~/Assets/js/jquery.validate.min.js"></script>
+
+        <script src="~/Assets/js/bootstrap.min.js"></script>
+        <script src="~/Assets/js/jquery.validate.unobtrusive.min.js"></script>
+        <script src="~/Assets/js/jquery.validate.min.js"></script>
 </body>
 </html>

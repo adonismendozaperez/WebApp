@@ -110,15 +110,6 @@ namespace WebApp.Controllers
             {
                 return HttpNotFound();
             }
-            return View(alumnoCurso);
-        }
-
-        // POST: AlumnoCursoes/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            AlumnoCurso alumnoCurso = db.AlumnoCurso.Find(id);
             db.AlumnoCurso.Remove(alumnoCurso);
             db.SaveChanges();
             return RedirectToAction("Index");
