@@ -4,7 +4,9 @@
 }
 
 <h2 class="page-header">
-    <a href="~/curso/crud" class="btn btn-default pull-right">Nuevo Curso</a>
+    <a href="~/curso/crud" class="btn btn-default pull-right">
+        <span class="glyphicon glyphicon-plus-sign"></span>Nuevo Curso
+    </a>
     Cursos
 </h2>
 
@@ -22,9 +24,15 @@
             <tr>
                 <th>@(m.Nombre)</th>
                 <th style="width:100px;">
-                    <a class="btn btn-xs btn-default " href="~/curso/ver/@m.id">Ver</a>
-                    <a class="btn btn-xs btn-primary " href="~/curso/crud/@m.id">Editar</a>
-                    <a onclick="return confirm('¿Desea eliminar?');" class="btn btn-xs btn-danger" href="~/curso/eliminar/@m.id">Eliminar</a>
+                    <a class="btn btn-default " href="~/curso/ver/@m.id" data-toggle="tooltip" data-placement="top" title="Ver Detalles">
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                    </a>
+                    <a class="btn  btn-primary " href="~/curso/crud/@m.id" data-toggle="tooltip" data-placement="top" title="Editar Curso">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </a>
+                    <a onclick="return confirm('¿Desea eliminar?');" class="btn  btn-danger" href="~/curso/eliminar/@m.id" data-toggle="tooltip" data-placement="top" title="Eliminar Curso">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
                 </th>
 
             </tr>
@@ -32,3 +40,8 @@
     </tbody>
 
 </table>
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>

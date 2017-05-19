@@ -4,11 +4,13 @@
     ViewBag.Title = "Asignaciones";
 }
 
-<h2>Asignaciones</h2>
 
-<p>
-    @Html.ActionLink("Nueva Asignacion", "Create", new { }, new { @class = "btn btn-default pull-right" })
-</p>
+<h2 class="page-header">
+    <a href="~/AlumnoCursoes/Create" class="btn btn-default pull-right">
+        <span class="glyphicon glyphicon-plus-sign"></span>Nueva Asignación
+    </a>
+    Asignaciones
+</h2>
 <table class="table table-bordered table-hover table-responsive">
     <tr>
         <th>
@@ -35,13 +37,22 @@
             @Html.DisplayFor(modelItem => item.Nota)
         </td>
         <td>
-            @Html.ActionLink("Ver", "Details", new { id = item.id }, new { @class = "btn btn-xs btn-default" })
-            @Html.ActionLink("Editar", "Edit", new { id=item.id }, new {@class= "btn btn-xs btn-primary" })
-            @*@Html.ActionLink("Eliminar", "Delete", new { id=item.id }, new { @class = "btn btn-xs btn-danger" })*@
-            <a onclick="return confirm('¿Desea eliminar?');" class="btn btn-xs btn-danger" href="~/AlumnoCursoes/Delete/@item.id">Eliminar</a>
-
+            <a class="btn  btn-default " href="~/AlumnoCursoes/Details/@item.id" data-toggle="tooltip" data-placement="top" title="Ver Detalles">
+                <span class="glyphicon glyphicon-eye-open"></span>
+            </a>
+            <a class="btn  btn-primary " href="~/AlumnoCursoes/Edit/@item.id" data-toggle="tooltip" data-placement="top" title="Editar Asignaciones">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </a>
+            <a onclick="return confirm('¿Desea eliminar?');" class="btn btn-danger" href="~/AlumnoCursoes/Delete/@item.id" data-toggle="tooltip" data-placement="top" title="Eliminar Asignación">
+                <span class="glyphicon glyphicon-trash"></span>
+            </a>
         </td>
     </tr>
 }
 
 </table>
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>

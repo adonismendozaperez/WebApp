@@ -14,8 +14,8 @@
     <div class="panel-heading">Informacion Personal</div>
     <div class="panel-body">
         <dl class="dl-horizontal">
-            <dt>Nombre:</dt>
-            <dd>@Model.Nombre</dd>  
+            <dt>Curso:</dt>
+            <dd>@Model.Nombre</dd>
         </dl>
     </div>
 </div>
@@ -28,13 +28,15 @@
             <thead>
                 <tr>
                     <th>Nombre</th>
-                    
+                    <th style="width:60px;">Nota</th>
                 </tr>
             </thead>
             @foreach (var c in Model.AlumnoCurso)
             {
                 <tr>
-                    <td>@(c.Alumno.Nombre+" "+c.Alumno.Apellidos)</td>     
+                    <td>@(c.Alumno.Nombre + " " + c.Alumno.Apellidos)</td>
+
+                    <td class="text-right"><span class="badge">@c.Nota</span> </td>
                 </tr>
             }
         </table>
@@ -48,5 +50,7 @@ else
 }
 
 <div class="text-lefth">
-    <a class="btn btn-sm btn-default " href="~/curso/">Atras</a>
+    <a class="btn btn-sm btn-default " href="~/curso/">
+        <span class="glyphicon glyphicon-arrow-left"></span>Atras
+    </a>
 </div>

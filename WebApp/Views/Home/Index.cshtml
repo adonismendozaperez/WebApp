@@ -1,9 +1,13 @@
 ﻿@model List<Modelo.Alumno>
+@using MVCEncrypt
 @{ 
+        
     ViewBag.title = "Alumnos";
 }
 <h2 class="page-header">
-    <a href="~/home/crud" class="btn btn-default pull-right">Nuevo Alumno</a> 
+    <a href="~/home/crud" class="btn btn-default pull-right">
+        <span class="glyphicon glyphicon-plus-sign"></span>Nuevo Alumno
+    </a>
     Alumnos
 </h2>
 <table class="table table-bordered table-hover table-responsive">
@@ -24,9 +28,15 @@
                 <th>@(m.Sexo =="1"?"Hombre":"Mujer")</th>
                 <th>@m.FechaNacimiento</th>
                 <th style="width:100px;">
-                    <a class="btn btn-xs btn-default " href="~/home/ver/@m.id">Ver</a>
-                    <a class="btn btn-xs btn-primary " href="~/home/crud/@m.id">Editar</a>
-                    <a onclick="return confirm('¿Desea eliminar?');" class="btn btn-xs btn-danger" href="~/home/eliminar/@m.id">Eliminar</a>
+                    <a class="btn  btn-default " href="~/home/ver/@m.id" data-toggle="tooltip" data-placement="top" title="Ver Detalles">
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                    </a>
+                    <a class="btn  btn-primary " href="~/home/crud/@m.id" data-toggle="tooltip" data-placement="top" title="Editar Alumno">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </a>
+                    <a onclick="return confirm('¿Desea eliminar?');" class="btn btn-danger" href="~/home/eliminar/@m.id" data-toggle="tooltip" data-placement="top" title="Eliminar Alumno">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
                 </th>
                 
             </tr>
@@ -34,3 +44,8 @@
     </tbody>
 
 </table>
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>

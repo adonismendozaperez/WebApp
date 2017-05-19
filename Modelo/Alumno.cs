@@ -31,6 +31,7 @@ namespace Modelo
         [StringLength(10)]
         public string Sexo { get; set; }
 
+        [DataType(DataType.Date)]
         [Column(TypeName = "date")]
         public DateTime? FechaNacimiento { get; set; }
 

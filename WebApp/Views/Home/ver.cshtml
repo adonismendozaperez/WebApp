@@ -3,14 +3,10 @@
 @{
     ViewBag.Title = "Detalles del Alumno";
 }
-<center>
-
-
-    <h2>Detalles del Alumno</h2>
-</center>
+<center><h2>Detalles del Alumno</h2></center>
 <ol class="breadcrumb">
     <li><a href="~/">Alumnos</a></li>
-    <li class="active">@(Model.Nombre +" " +Model.Apellidos)</li>
+    <li class="active">@(Model.Nombre + " " + Model.Apellidos)</li>
 </ol>
 
 
@@ -21,7 +17,7 @@
             <dt>Nombre:</dt>
             <dd>@Model.Nombre @Model.Apellidos</dd>
             <dt>Sexo:</dt>
-            <dd>@(Model.Sexo == "1"?"Hombre":"Mujer")</dd>
+            <dd>@(Model.Sexo == "1" ? "Hombre" : "Mujer")</dd>
             <dt>Fecha Nacimiento:</dt>
             <dd>@Model.FechaNacimiento</dd>
         </dl>
@@ -43,7 +39,7 @@
             {
                 <tr>
                     <td>@c.Curso.Nombre</td>
-                    <td class="text-right">@c.Nota</td>
+                    <td class="text-right"><span class="badge">@c.Nota</span> </td>
                 </tr>
             }
         </table>
@@ -51,12 +47,14 @@
     </div>
 }
 else
-{   
+{
     <p><b>No hay cursos asignados a este alumno.</b></p>
-    
+
 }
 
 <div class="text-lefth">
 
-    <a class="btn btn-sm btn-default " href="~/home/">Atras</a>
+    <a class="btn btn-sm btn-default " href="~/home/">
+        <span class="glyphicon glyphicon-arrow-left"></span>Atras
+    </a>
 </div>

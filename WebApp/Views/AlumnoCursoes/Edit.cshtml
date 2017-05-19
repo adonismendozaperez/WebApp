@@ -31,43 +31,47 @@
 
                     <div class="form-group">
                         @Html.LabelFor(model => model.Alumno_id, "Alumno_id", htmlAttributes: new { @class = "control-label col-md-2" })
-                        
-                            @Html.DropDownList("Alumno_id", null, htmlAttributes: new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.Alumno_id, "", new { @class = "text-danger" })
-                        
+
+                        @Html.DropDownList("Alumno_id", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Alumno_id, "", new { @class = "text-danger" })
+
                     </div>
 
                     <div class="form-group">
                         @Html.LabelFor(model => model.Curso_id, "Curso_id", htmlAttributes: new { @class = "control-label col-md-2" })
-                        
-                            @Html.DropDownList("Curso_id", null, htmlAttributes: new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.Curso_id, "", new { @class = "text-danger" })
-                        
+
+                        @Html.DropDownList("Curso_id", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Curso_id, "", new { @class = "text-danger" })
+
                     </div>
 
                     <div class="form-group">
                         @Html.LabelFor(model => model.Nota, htmlAttributes: new { @class = "control-label col-md-2" })
-                        
-                            @Html.EditorFor(model => model.Nota, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Nota, "", new { @class = "text-danger" })
-                        
+
+                        @Html.EditorFor(model => model.Nota, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Nota, "", new { @class = "text-danger" })
+
                     </div>
 
                 </div>
             </div>
 
             <div class="text-lefth">
-                <a class="btn btn-sm btn-danger" href="~/AlumnoCursoes/">Cancelar</a>
+                <a class="btn btn-sm btn-danger" href="~/AlumnoCursoes/">
+                    <span class="glyphicon glyphicon-remove"></span>Cancelar
+                </a>
             </div>
 
             <div class="text-right">
-                <button type="submit" class="btn btn-primary">Guardar  </button>
+                <button type="submit" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-ok"></span>Guardar
+                </button>
             </div>
 
         </div>
-        </div>
-        }
+    </div>
+}
 
-        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-        <script src="~/Scripts/jquery.validate.min.js"></script>
-        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

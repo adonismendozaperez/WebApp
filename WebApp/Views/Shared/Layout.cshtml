@@ -14,17 +14,18 @@
             <!-- Barra del menu -->
         <nav>
             <ul class="nav nav-pills float-right">
+
                 <!-- Boton Alumnos -->
                 <li class="nav-item">
-                    @Html.ActionLink("Alumnos","Index","Home",new { }, new { @class="nav-link active"})
+                        @Html.ActionLink("Alumnos", "Index", "Home", new { }, new { @class = "nav-link active glyphicon glyphicon-user" })
                 </li>
                 <!-- Boton About -->
                 <li class="nav-item">
-                    @Html.ActionLink("Cursos", "Index", "Curso",new { }, new { @class = "nav-link " })
+                    @Html.ActionLink("Cursos", "Index", "Curso",new { }, new { @class = "nav-link  glyphicon glyphicon-book" })
                 </li>
                 <!-- Boton Contacts -->
                 <li class="nav-item">
-                    @Html.ActionLink("Asignaciones", "Index", "AlumnoCursoes", new { }, new { @class = "nav-link " })
+                    @Html.ActionLink("Asignaciones", "Index", "AlumnoCursoes", new { }, new { @class = "nav-link glyphicon glyphicon-education" })
                 </li>
             </ul>
         </nav>
