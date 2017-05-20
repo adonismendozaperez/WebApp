@@ -28,18 +28,7 @@ namespace WebApp.Controllers
                 :alumno.obtener(id));
         }
 
-        public ActionResult GuardarAlumnoCuros(AlumnoCurso curso)
-        {
-            if (ModelState.IsValid)
-            {
-                curso.Guardar();
-                return Redirect("~/home");
-            }
-            else
-            {
-                return View("~/views/home/crud.cshtml", curso);
-            }
-        }
+
 
         public ActionResult Guardar(Alumno model)
         {
