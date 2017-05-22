@@ -1,5 +1,5 @@
-﻿@model IEnumerable<Modelo.AlumnoCurso>
-
+﻿@model PagedList.IPagedList<Modelo.AlumnoCurso>
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "Asignaciones";
 }
@@ -14,13 +14,13 @@
 <table class="table table-bordered table-hover table-responsive table-condensed table-striped">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Alumno.Nombre)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Alumno.Nombre)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Curso.Nombre)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Curso)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Nota)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Nota)
         </th>
         <th></th>
     </tr>
@@ -51,6 +51,17 @@
 }
 
 </table>
+
+Página: @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de: @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index", new
+{
+    page,
+    sortOrder =
+    ViewBag.CurrentSort,
+    currentFilter = ViewBag.CurrentFilter
+}))
+
+
 <script>
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()

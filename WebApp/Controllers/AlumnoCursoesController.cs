@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Modelo;
+using WebApp.Helpers;
+using PagedList;
 
 namespace WebApp.Controllers
 {
@@ -15,10 +17,11 @@ namespace WebApp.Controllers
         private TestContex db = new TestContex();
 
         // GET: AlumnoCursoes
-        public ActionResult Index()
+        public ActionResult Index(int? page = null)
         {
-            var alumnoCurso = db.AlumnoCurso.Include(a => a.Alumno).Include(a => a.Curso);
-            return View(alumnoCurso.ToList());
+            page = (page ?? 1);
+            var alumnoCurso = db.AlumnoCurso.Include(a => a.Alumno).Include(a => a.Curso).OrderBy(a=>a.Nota);
+            return View(alumnoCurso.ToPagedList((int)page, 10));
         }
 
         // GET: AlumnoCursoes/Details/5
@@ -39,8 +42,8 @@ namespace WebApp.Controllers
         // GET: AlumnoCursoes/Create
         public ActionResult Create()
         {
-            ViewBag.Alumno_id = new SelectList(db.Alumno, "id", "Nombre");
-            ViewBag.Curso_id = new SelectList(db.Curso, "id", "Nombre");
+            ViewBag.Alumno_id = new SelectList(CombosHelpers.GetAlumnos(), "id", "Nombre");
+            ViewBag.Curso_id = new SelectList(CombosHelpers.GetCursos(), "id", "Nombre");
             return View();
         }
 
@@ -54,12 +57,22 @@ namespace WebApp.Controllers
             if (ModelState.IsValid)
             {
                 db.AlumnoCurso.Add(alumnoCurso);
-                db.SaveChanges();
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (Exception  ex)
+                {
+                    ex.ToString();
+
+                    ModelState.AddModelError(string.Empty,"Error");
+                }
+                
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Alumno_id = new SelectList(db.Alumno, "id", "Nombre", alumnoCurso.Alumno_id);
-            ViewBag.Curso_id = new SelectList(db.Curso, "id", "Nombre", alumnoCurso.Curso_id);
+            ViewBag.Alumno_id = new SelectList(CombosHelpers.GetAlumnos(), "id", "Nombre", alumnoCurso.Alumno_id);
+            ViewBag.Curso_id = new SelectList(CombosHelpers.GetCursos(), "id", "Nombre", alumnoCurso.Curso_id);
             return View(alumnoCurso);
         }
 
@@ -75,8 +88,8 @@ namespace WebApp.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Alumno_id = new SelectList(db.Alumno, "id", "Nombre", alumnoCurso.Alumno_id);
-            ViewBag.Curso_id = new SelectList(db.Curso, "id", "Nombre", alumnoCurso.Curso_id);
+            ViewBag.Alumno_id = new SelectList(CombosHelpers.GetAlumnos(), "id", "Nombre", alumnoCurso.Alumno_id);
+            ViewBag.Curso_id = new SelectList(CombosHelpers.GetCursos(), "id", "Nombre", alumnoCurso.Curso_id);
             return View(alumnoCurso);
         }
 
@@ -93,8 +106,8 @@ namespace WebApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Alumno_id = new SelectList(db.Alumno, "id", "Nombre", alumnoCurso.Alumno_id);
-            ViewBag.Curso_id = new SelectList(db.Curso, "id", "Nombre", alumnoCurso.Curso_id);
+            ViewBag.Alumno_id = new SelectList(CombosHelpers.GetAlumnos(), "id", "Nombre", alumnoCurso.Alumno_id);
+            ViewBag.Curso_id = new SelectList(CombosHelpers.GetCursos(), "id", "Nombre", alumnoCurso.Curso_id);
             return View(alumnoCurso);
         }
 

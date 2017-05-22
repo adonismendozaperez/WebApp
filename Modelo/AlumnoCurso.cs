@@ -12,8 +12,10 @@ namespace Modelo
     {
         public int id { get; set; }
 
+        [Range(1, double.MaxValue, ErrorMessage = "Debe seleccionar un Alumno")]
         public int? Alumno_id { get; set; }
 
+        [Range(1, double.MaxValue, ErrorMessage = "Debe seleccionar un Curso")]
         public int? Curso_id { get; set; }
 
         [StringLength(50)]
